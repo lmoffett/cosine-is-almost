@@ -1,0 +1,11 @@
+name: protopnext
+
+channels:
+  - pytorch
+  - nvidia
+  - default
+  # can try getting rid of conda-forge, getting rid of default, changing python version
+  #- conda-forge
+
+dependencies:
+  - python=3.8

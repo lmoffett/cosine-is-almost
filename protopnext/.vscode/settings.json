@@ -1,0 +1,9 @@
+{
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.envFile": "${workspaceFolder}/.env",
+    "jupyter.jupyterCommandLineArguments": [
+        "--no-browser",
+        "--notebook-dir=${workspaceFolder}",
+    ],
+}

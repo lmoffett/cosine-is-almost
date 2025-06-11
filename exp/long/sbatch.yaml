@@ -1,0 +1,6 @@
+runner: slurm
+cpus_per_task: 8
+gres: gpu:a5000:1
+time: 3-12:00:00
+mem_gb: 32
+array_size: 3

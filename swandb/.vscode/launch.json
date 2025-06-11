@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["${input:args}"],
+            "console": "integratedTerminal",
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "purpose": ["debug-test"],
+            "env": {"PYTEST_ADDOPTS": "--no-cov"},
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Debug swandb",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${command:python.interpreterPath}",
+            "program": "-m",
+            "purpose": ["debug-in-terminal"],
+            "args": ["swandb", "${input:args}"],
+            "env": {"PYTEST_ADDOPTS": "--no-cov"},
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "inputs":[
+        {
+            "id": "args",
+            "type": "promptString",
+            "description": "extra command line arguments"
+        }
+    ]
+}

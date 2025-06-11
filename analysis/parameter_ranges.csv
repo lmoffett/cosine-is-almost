@@ -1,0 +1,83 @@
+parameter,distribution,parameters,quantization,percentile_05,percentile_95,id
+adamw_eps,values,[1e-07],,,,exp/short/prototree.yaml
+adamw_weight_decay,values,[0.0],,,,exp/short/prototree.yaml
+backbone_lr_multiplier,Log-normal,"mu = 0, sigma = 1.2",0.2,0.1389,7.1982,exp/short/prototree.yaml
+closeness_loss_coef,Normal,"mu = 1.0, sigma = 0.4",0.2,0.3421,1.6579,exp/short/st-protopnet.yaml
+cluster_coef,Normal,"mu = -1.0, sigma = 0.4",0.2,-1.6579,-0.3421,exp/short/vanilla-accuracy.yaml
+cluster_coef,Normal,"mu = -1.0, sigma = 0.4",0.2,-1.6579,-0.3421,exp/short/st-protopnet.yaml
+cluster_coef,Normal,"mu = -1.0, sigma = 0.4",0.2,-1.6579,-0.3421,exp/short/deformable.yaml
+cluster_coef,Normal,"mu = -1.0, sigma = 0.4",0.2,-1.6579,-0.3421,exp/short/tesnet.yaml
+cluster_coef,Normal,"mu = -0.8, sigma = 0.5",,-1.6224,0.0224,exp/long/vanilla-accuracy.yaml
+depth,values,[9],,,,exp/short/prototree.yaml
+discrimination_loss_coef,Normal,"mu = 1.0, sigma = 0.4",0.2,0.3421,1.6579,exp/short/st-protopnet.yaml
+grassmannian_orthogonality_loss_coef,Normal,"mu = -1e-07, sigma = 2e-08",2e-08,-0.000000,-0.000000,exp/short/tesnet.yaml
+joint_epochs_before_lr_milestones,values,[30],,,,exp/short/prototree.yaml
+joint_epochs_per_phase,values,[10],,,,exp/long/vanilla-accuracy.yaml
+joint_lr_step_size,Integer Uniform,"[2, 10]",,2.00,10.00,exp/long/vanilla-accuracy.yaml
+joint_phase_len_at_lr1,Normal,"mu = 70, sigma = 10",5.0,53.55,86.45,exp/short/prototree.yaml
+joint_steps_per_phase_at_lr1,Log-normal,"mu = 2.3, sigma = 0.3",3.0,6.09,16.34,exp/short/tesnet.yaml
+joint_steps_per_phase_at_lr1,Log-normal,"mu = 2.3, sigma = 0.3",3.0,6.09,16.34,exp/short/deformable.yaml
+joint_steps_per_phase_at_lr1,Log-normal,"mu = 2.3, sigma = 0.3",3.0,6.09,16.34,exp/short/vanilla-accuracy.yaml
+joint_steps_per_phase_at_lr1,Log-normal,"mu = 2.3, sigma = 0.3",3.0,6.09,16.34,exp/short/st-protopnet.yaml
+l1_coef,Log-uniform,"[5e-05, 0.001]",5e-05,0.000098,0.000953,exp/short/st-protopnet.yaml
+l1_coef,Log-uniform,"[5e-05, 0.001]",5e-05,0.000098,0.000953,exp/short/tesnet.yaml
+l1_coef,Log-uniform,"[5e-05, 0.001]",5e-05,0.000098,0.000953,exp/short/vanilla-accuracy.yaml
+l1_coef,Log-uniform,"[1e-05, 0.001]",,0.000060,0.000950,exp/long/vanilla-accuracy.yaml
+l1_coef,Log-uniform,"[5e-05, 0.001]",5e-05,0.000098,0.000953,exp/short/deformable.yaml
+last_only_epochs_per_phase,values,[20],,,,exp/long/vanilla-accuracy.yaml
+last_only_steps_per_joint_step,Uniform,"[0.25, 1]",0.25,0.2875,0.9625,exp/short/vanilla-accuracy.yaml
+last_only_steps_per_joint_step,Uniform,"[0.25, 1]",0.25,0.2875,0.9625,exp/short/tesnet.yaml
+last_only_steps_per_joint_step,Uniform,"[0.25, 1]",0.25,0.2875,0.9625,exp/short/deformable.yaml
+last_only_steps_per_joint_step,Uniform,"[0.25, 1]",0.25,0.2875,0.9625,exp/short/st-protopnet.yaml
+latent_dim_multiplier_2exp,Uniform,"[-3, 0]",1.0,-2.8500,-0.1500,exp/short/vanilla-accuracy.yaml
+latent_dim_multiplier_exp,Integer Uniform,"[-4, 1]",,-4.00,1.00,exp/long/vanilla-accuracy.yaml
+latent_dim_multiplier_exp,values,[-2],,,,exp/short/vanilla-accuracy.yaml
+log_probabilities,values,[False],,,,exp/short/prototree.yaml
+lr_multiplier,Log-normal,"mu = -0.6, sigma = 1",0.05,0.1059,2.8430,exp/short/vanilla-accuracy.yaml
+lr_multiplier,Log-normal,"mu = -0.6, sigma = 1",0.05,0.1059,2.8430,exp/short/tesnet.yaml
+lr_multiplier,Log-normal,"mu = -0.6, sigma = 1",0.05,0.1059,2.8430,exp/short/st-protopnet.yaml
+lr_multiplier,Log-normal,"mu = -0.6, sigma = 1",0.05,0.1059,2.8430,exp/short/deformable.yaml
+lr_multiplier,Normal,"mu = 1.0, sigma = 0.4",,0.3421,1.6579,exp/long/vanilla-accuracy.yaml
+lr_step_gamma,Normal,"mu = 0.5, sigma = 0.2",0.1,0.1710,0.8290,exp/short/prototree.yaml
+lr_step_gamma,values,[0.1],,,,exp/short/st-protopnet.yaml
+lr_step_gamma,values,[0.1],,,,exp/short/vanilla-accuracy.yaml
+lr_step_gamma,values,[0.1],,,,exp/short/tesnet.yaml
+lr_step_gamma,values,[0.1],,,,exp/short/deformable.yaml
+lr_step_gamma,values,[0.1],,,,exp/long/vanilla-accuracy.yaml
+lr_step_per_joint_phase_2exp,Uniform,"[-2, 2]",1.0,-1.80,1.80,exp/short/vanilla-accuracy.yaml
+lr_step_per_joint_phase_2exp,Uniform,"[-2, 2]",1.0,-1.80,1.80,exp/short/tesnet.yaml
+lr_step_per_joint_phase_2exp,Uniform,"[-2, 2]",1.0,-1.80,1.80,exp/short/deformable.yaml
+lr_step_per_joint_phase_2exp,Uniform,"[-2, 2]",1.0,-1.80,1.80,exp/short/st-protopnet.yaml
+lr_weight_decay,Log-normal,"mu = -10, sigma = 1",5e-05,0.000009,0.000235,exp/short/prototree.yaml
+non_backbone_lr_multiplier,Log-normal,"mu = 0, sigma = 1.2",0.2,0.1389,7.1982,exp/short/prototree.yaml
+num_addon_layers,values,[2],,,,exp/short/vanilla-accuracy.yaml
+num_addon_layers,values,[2],,,,exp/short/tesnet.yaml
+num_addon_layers,values,[1],,,,exp/short/st-protopnet.yaml
+num_addon_layers,Integer Uniform,"[0, 2]",,0.000000,2.000000,exp/long/vanilla-accuracy.yaml
+num_addon_layers,values,[2],,,,exp/short/deformable.yaml
+num_lr_milestones,values,[5],,,,exp/short/prototree.yaml
+num_prototypes_per_class,Integer Uniform,"[1, 16]",,1.00,16.00,exp/long/vanilla-accuracy.yaml
+num_warm_epochs_at_lr1,Log-normal,"mu = 1.6, sigma = 0.4",2.0,2.57,9.56,exp/short/vanilla-accuracy.yaml
+num_warm_epochs_at_lr1,Log-normal,"mu = 1.6, sigma = 0.4",2.0,2.57,9.56,exp/short/st-protopnet.yaml
+num_warm_epochs_at_lr1,Log-normal,"mu = 1.6, sigma = 0.4",2.0,2.57,9.56,exp/short/tesnet.yaml
+num_warm_epochs_at_lr1,Log-normal,"mu = 1.6, sigma = 0.4",2.0,2.57,9.56,exp/short/deformable.yaml
+ortho_p_norm,values,[1],,,,exp/short/st-protopnet.yaml
+orthogonality_loss_coef,Normal,"mu = 0.0001, sigma = 2e-05",2e-05,0.000067,0.000133,exp/short/tesnet.yaml
+orthogonality_loss_coef,Normal,"mu = 0.001, sigma = 0.4",0.2,-0.6569,0.6589,exp/short/st-protopnet.yaml
+orthogonality_loss_coef,Log-normal,"mu = -5.2, sigma = 1.4",0.0005,0.000552,0.055177,exp/short/deformable.yaml
+phase_multiplier,values,[1],,,,exp/long/vanilla-accuracy.yaml
+post_project_phases,values,[32],,,,exp/short/st-protopnet.yaml
+post_project_phases,values,[32],,,,exp/short/deformable.yaml
+post_project_phases,values,[32],,,,exp/short/vanilla-accuracy.yaml
+post_project_phases,values,[10],,,,exp/long/vanilla-accuracy.yaml
+post_project_phases,values,[32],,,,exp/short/tesnet.yaml
+pre_project_phase_len,Integer Uniform,"[3, 15]",,3.00,15.00,exp/long/vanilla-accuracy.yaml
+proto_channels,Uniform,"[64, 128]",64.0,67.20,124.80,exp/short/tesnet.yaml
+proto_channels,values,[256],,,,exp/short/prototree.yaml
+separation_coef,Normal,"mu = 0.1, sigma = 0.04",0.02,0.0342,0.1658,exp/short/tesnet.yaml
+separation_coef,Normal,"mu = 0.1, sigma = 0.04",0.02,0.0342,0.1658,exp/short/deformable.yaml
+separation_coef,Normal,"mu = 0.08, sigma = 0.1",,-0.0845,0.2445,exp/long/vanilla-accuracy.yaml
+separation_coef,Normal,"mu = 0.1, sigma = 0.04",0.02,0.0342,0.1658,exp/short/vanilla-accuracy.yaml
+support_separation_coef,Normal,"mu = 0.5, sigma = 0.04",0.02,0.4342,0.5658,exp/short/st-protopnet.yaml
+trivial_separation_coef,Normal,"mu = 0.1, sigma = 0.04",0.02,0.0342,0.1658,exp/short/st-protopnet.yaml
+warm_up_phase_len_at_lr1,Normal,"mu = 30, sigma = 5",5.0,21.78,38.22,exp/short/prototree.yaml

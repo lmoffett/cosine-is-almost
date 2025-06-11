@@ -1,0 +1,26 @@
+venv
+.venv
+.env
+.pretrained-models/**
+wandb/
+experiments/
+
+# Python Output
+.coverage
+unit-test.xml
+coverage.xml
+.coverage.*
+.DS_Store
+__pycache__
+**/*.pyc
+**/.pytest_cache
+*.egg-info/
+dis
+
+# IDE Configs
+.idea
+*.swp
+
+# logs
+*.out
+*.err

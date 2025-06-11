@@ -1,0 +1,52 @@
+[project]
+name = "protopnet"
+description = "Baseline code for the core functionality of ProtoPNet by the Interpretable Machine Learning Lab at Duke University (https://users.cs.duke.edu/~cynthia/lab.html)"
+version = "0.0.1"
+authors = [
+    {name = "Luke Moffett", email = "luke.moffett@duke.edu"},
+]
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+dependencies = [
+    "aiohttp==3.8.3",
+    "annoy==1.17.3",
+    "beautifulsoup4==4.12.3",
+    "Cython==0.29.33",
+    "dcn==2.0.0.4.1.2",
+    "matplotlib==3.6.3",
+    "opencv-python==4.7.0.68",
+    "pacmap==0.7.0",
+    "pandas==2.0.2",
+    "pytorch-lightning==1.9.0",
+    "tensorboard==2.14.0",
+    "tokenize-rt==5.2.0",
+    "torch==1.13.1",
+    "torch-summary==1.4.4",
+    "torchaudio==0.13.1",
+    "torchvision==0.14.1",
+    "wandb==0.16.6",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"] 
+
+[tool.setuptools]
+packages = ["protopnet"]
+package-dir = {"" = "."}
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts="--strict-markers --ignore=test/out --cov-report term --cov=protopnet"
+testpaths = ["test", "inttest"]
+markers = [
+    "cuda: test should only run on platform with cuda support",
+]
+
+[tool.isort]
+profile = "black"

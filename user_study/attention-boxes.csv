@@ -1,0 +1,7 @@
+id,bb,distance
+row19_img_idx221_spunky-train_spunky-train_best_cozy-plume_cozy-plume_best_densenet161,"(0, 0, 100, 100)",l2
+row37_img_idx46_feisty-house_feisty-house_best_warm-beach_warm-beach_best_resnet50[pretraining=inaturalist],"(20, 200, 120, 300)",l2
+row8_img_idx154_quirky-spirit_quirky-spirit_best_true-season_true-season_best_densenet161,"(150, 20, 250, 70)",l2
+row19_img_idx162_spunky-train_spunky-train_best_cozy-plume_cozy-plume_best_densenet161,"(10, 10, 50, 130)",l2
+row6_img_idx17_witty-planet_witty-planet_best_true-season_true-season_best_densenet161,"(120, 180, 170, 260)",cos
+row6_img_idx129_witty-planet_witty-planet_best_true-season_true-season_best_densenet161,"(60, 270, 160, 390)",cos

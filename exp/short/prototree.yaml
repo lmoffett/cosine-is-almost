@@ -1,0 +1,66 @@
+description: Long sweep of prototree on all datasets and backbones with accuracy objective
+gpu_time_limit: 7200m
+hyper_sweep_parameters:
+  activation_function:
+    values:
+    - cosine
+    - l2
+    - exp_l2
+  backbone:
+    values:
+    - resnet50
+    - resnet50[pretraining=inaturalist]
+    - densenet161
+    - vgg19
+  dataset:
+    values:
+    - cub200
+    - cub200_cropped
+    - cars
+    - dogs
+method: bayes
+metric:
+  goal: maximize
+  name: project/accuracy
+parameters:
+  backbone_lr_multiplier:
+    distribution: q_log_normal
+    mu: 0
+    q: 0.2
+    sigma: 1.2
+  joint_phase_len_at_lr1:
+    distribution: q_normal
+    mu: 35
+    q: 5.0
+    sigma: 10
+  log_probabilities:
+    values:
+    - false
+  lr_step_gamma:
+    distribution: q_normal
+    mu: 0.5
+    q: 0.1
+    sigma: 0.2
+  lr_weight_decay:
+    distribution: q_log_normal
+    mu: -10
+    q: 5.0e-05
+    sigma: 1
+  non_backbone_lr_multiplier:
+    distribution: q_log_normal
+    mu: 0
+    q: 0.2
+    sigma: 1.2
+  warm_up_phase_len_at_lr1:
+    distribution: q_normal
+    mu: 15
+    q: 5.0
+    sigma: 5
+preflight_parameters:
+  backbone_lr_multiplier: 1.0
+  joint_phase_len_at_lr1: 1
+  lr_step_gamma: 0.5
+  non_backbone_lr_multiplier: 1.0
+  warm_up_phase_len_at_lr1: 1
+  weight_decay: 0.0
+train_method: exp/short/prototree.py::train

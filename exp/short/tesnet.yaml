@@ -1,0 +1,99 @@
+description: Long sweep of vanilla protopnet on all datasets and backbones with accuracy
+  objective
+gpu_time_limit: 7200m
+hyper_sweep_parameters:
+  activation_function:
+    values:
+    - cosine
+    - l2
+  backbone:
+    values:
+    - resnet50
+    - resnet50[pretraining=inaturalist]
+    - densenet161
+    - vgg19
+  dataset:
+    values:
+    - cub200
+    - cub200_cropped
+    - cars_cropped
+    - dogs
+method: bayes
+metric:
+  goal: maximize
+  name: project/accuracy
+parameters:
+  cluster_coef:
+    distribution: q_normal
+    mu: -1.0
+    q: 0.2
+    sigma: 0.4
+  grassmannian_orthogonality_loss_coef:
+    distribution: q_normal
+    mu: -1.0e-07
+    q: 2.0e-08
+    sigma: 2.0e-08
+  joint_steps_per_phase_at_lr1:
+    distribution: q_log_normal
+    mu: 2.3
+    q: 3.0
+    sigma: 0.3
+  l1_coef:
+    distribution: q_log_uniform_values
+    max: 0.001
+    min: 5.0e-05
+    q: 5.0e-05
+  last_only_steps_per_joint_step:
+    distribution: q_uniform
+    max: 1
+    min: 0.25
+    q: 0.25
+  lr_multiplier:
+    distribution: q_log_normal
+    mu: -0.6
+    q: 0.05
+    sigma: 1
+  lr_step_per_joint_phase_2exp:
+    distribution: q_uniform
+    max: 2
+    min: -2
+    q: 1.0
+  num_addon_layers:
+    values:
+    - 2
+  num_warm_epochs_at_lr1:
+    distribution: q_log_normal
+    mu: 1.6
+    q: 2.0
+    sigma: 0.4
+  orthogonality_loss_coef:
+    distribution: q_normal
+    mu: 0.0001
+    q: 2.0e-05
+    sigma: 2.0e-05
+  proto_channels:
+    distribution: q_uniform
+    max: 128
+    min: 64
+    q: 64.0
+  separation_coef:
+    distribution: q_normal
+    mu: 0.1
+    q: 0.02
+    sigma: 0.04
+preflight_parameters:
+  cluster_coef: -0.8
+  grassmannian_orthogonality_loss_coef: -1e-6
+  joint_steps_per_phase_at_lr1: 1
+  l1_coef: 0.0001
+  last_only_steps_per_joint_step: 1.5
+  lr_multiplier: 1.0
+  lr_step_per_joint_phase_2exp: 1
+  num_addon_layers: 2
+  num_prototypes_per_class: 14
+  num_warm_epochs_at_lr1: 1
+  orthogonality_loss_coef: 0.01
+  proto_channels: 128
+  post_project_phases: 0
+  separation_coef: 0.08
+train_method: exp/short/tesnet.py::train

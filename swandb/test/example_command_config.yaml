@@ -1,0 +1,3 @@
+
+grouping_key: "sweep_id"
+command_generator: "test/example_command_generator.py::echo"

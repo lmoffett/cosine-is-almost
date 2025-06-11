@@ -1,0 +1,55 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "args": ["${input:args}"],
+            "console": "integratedTerminal",
+        },
+        {
+            "name": "Python: Remote Attach",
+            "type": "python",
+            "request": "attach",
+            "connect": {
+                "host": "${input:slurm-host}",
+                "port": 4567
+            },
+        },
+        {
+            "name": "Python: Debug Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "purpose": ["debug-test"],
+            "env": {"PYTEST_ADDOPTS": "--no-cov"},
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: Debug Main",
+            "type": "debugpy",
+            "request": "launch",
+            "python": "${command:python.interpreterPath}",
+            "program": "-m",
+            "purpose": ["debug-in-terminal"],
+            "args": ["protopnet", "${input:args}"],
+            "env": {"PYTEST_ADDOPTS": "--no-cov", "PYTHONPATH": "${workspaceFolder}"},
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ],
+    "inputs":[
+        {
+            "id": "slurm-host",
+            "type": "promptString",
+            "description": "Enter the hostname of the slurm node you are running on."
+        },
+        {
+            "id": "args",
+            "type": "promptString",
+            "description": "extra command line arguments"
+        }
+    ]
+}

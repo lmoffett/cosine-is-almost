@@ -1,0 +1,38 @@
+description: Method Sweep - Used to validate swandb time limit
+
+method: grid
+metric:
+  goal: maximize
+  name: mock_target_metric
+
+parameters:
+  param1:
+    values:
+    - 1
+    - 2
+    - 3
+    - 4
+  
+  param2:
+    values:
+    - 10
+    - 20
+    - 30
+    - 40
+
+train_method: test/mock_train.py::train
+gpu_time_limit: 1m
+
+hyper_sweep_parameters:
+  baseline:
+    values:
+    - 500
+
+  sleep:
+    values:
+    # Should run more than 1 but less than 4 sweeps
+    - 21
+
+preflight_parameters:
+  param1: 3
+  param2: 30

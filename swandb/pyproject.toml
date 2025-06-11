@@ -1,0 +1,49 @@
+[project]
+name = "swandb"
+description = "run sweeps on slurm"
+version = "0.1.0"
+authors = [
+    {name = "Luke Moffett", email = "luke.moffett@duke.edu"},
+]
+requires-python = ">=3.8"
+license = { text = "MIT" }
+
+dependencies = [
+    "wandb==0.16.6",
+    "numpy==1.24.1",
+    "pandas==2.0.2",
+    "pydantic==2.10.6",
+    "tqdm==4.64.1",
+    "torch==1.13.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black==23.7.0",
+    "coverage==7.1.0",
+    "pre-commit==3.0.4",
+    "pytest==7.2.1",
+    "pytest-cov==4.0.0",
+    "pytest-xdist==3.1.0",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"] 
+
+[tool.setuptools]
+packages = ["swandb"]
+package-dir = {"" = "."}
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+include = '\.pyi?$'
+
+[tool.pytest.ini_options]
+pythonpath = "."
+minversion = "6.0"
+addopts="--strict-markers --ignore=test/out --cov-report term --cov=exputil"
+testpaths = ["test"]
+
+[tool.isort]
+profile = "black"

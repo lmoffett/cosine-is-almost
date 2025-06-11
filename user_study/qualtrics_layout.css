@@ -1,0 +1,32 @@
+#SurveyEngineBody {
+    max-width: 1600px !important;
+    width: 95% !important;
+    margin: 0 auto !important;
+}
+
+.SkinInner {
+    width: 100% !important;
+    margin: 0 auto !important;
+}
+
+
+Horizontal
+.InnerInner.BorderColor.TX {
+    display: grid !important;
+    grid-template-columns: 30% 70% !important;
+    gap: 20px !important;
+}
+
+.InnerInner.BorderColor.TX legend {
+    grid-column: 1 !important;
+    float: left !important;
+}
+
+.InnerInner.BorderColor.TX .QuestionBody {
+    grid-column: 2 !important;
+}
+
+/* Also try forcing fieldset to not break the layout */
+.InnerInner.BorderColor.TX fieldset {
+    display: contents !important;
+}

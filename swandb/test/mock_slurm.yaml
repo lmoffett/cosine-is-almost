@@ -1,0 +1,5 @@
+runner: slurm
+cpus_per_task: 2
+time: 00:10:00
+mem_gb: 16
+array_size: 2

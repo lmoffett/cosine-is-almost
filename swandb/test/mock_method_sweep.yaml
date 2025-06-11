@@ -1,0 +1,29 @@
+description: Method Sweep - Used to validate swandb
+
+method: grid
+metric:
+  goal: maximize
+  name: mock_target_metric
+
+parameters:
+  param1:
+    values:
+    - 1
+    - 2
+  
+  param2:
+    values:
+    - 10
+    - 20
+
+train_method: test/mock_train.py::train
+
+hyper_sweep_parameters:
+  baseline:
+    values:
+    - 100
+    - 200
+
+preflight_parameters:
+  param1: 3
+  param2: 30

@@ -1,0 +1,88 @@
+description: Long sweep of vanilla protopnet on all datasets and backbones with acc_proto_score objective.
+
+method: bayes
+metric:
+  goal: maximize
+  name: best[prototypes_embedded]/eval/acc_proto_score
+
+train_method: exp/long/vanilla_accproto.py::train
+# Make sure the job configuration allows for enough time to complete the sweep
+gpu_time_limit: 12960m
+
+parameters:
+  pre_project_phase_len:
+    distribution: int_uniform
+    min: 3
+    max: 15
+  post_project_phases:
+    values: [10]
+  
+  phase_multiplier:
+    values: [1]
+  lr_multiplier:
+    distribution: normal
+    mu: 1.0
+    sigma: .4
+  joint_lr_step_size:
+    distribution: int_uniform
+    min: 2
+    max: 10
+
+  num_addon_layers:
+    distribution: int_uniform
+    min: 0
+    max: 2
+  latent_dim_multiplier_exp:
+    distribution: int_uniform
+    min: -4
+    max: 1
+
+  num_prototypes_per_class:
+    distribution: int_uniform
+    min: 1
+    max: 16
+  
+  cluster_coef:
+    # 10th: -1.44 90th: -0.16
+    distribution: normal
+    mu: -0.8
+    sigma: 0.5
+  separation_coef:
+    # 10th: -0.05, 90th: 0.21
+    distribution: normal
+    mu: 0.08
+    sigma: 0.1
+
+  l1_coef:
+    distribution: log_uniform_values
+    min: 0.00001
+    max: 0.001
+
+hyper_sweep_parameters:
+  backbone:
+    values:
+    - resnet50
+    - resnet50[pretraining=inaturalist]
+    - densenet161
+    - vgg19
+  activation_function:
+    values:
+    - cosine
+    - l2
+  dataset:
+    values:
+    - cub200
+
+preflight_parameters:
+  pre_project_phase_len: 1
+  post_project_phases: 0
+  phase_multiplier: 1
+  last_only_epochs_per_phase: 1
+  lr_multiplier: 1.0
+  joint_lr_step_size: 5
+  num_addon_layers: 2
+  latent_dim_multiplier_exp: 1
+  num_prototypes_per_class: 16
+  cluster_coef: -0.8
+  separation_coef: 0.08
+  l1_coef: 0.0001
